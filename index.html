@@ -11,6 +11,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="icon" type="image/png" href="images/favicon.png" sizes="256x256">
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
@@ -25,14 +26,15 @@
 			<div class="content">
 				<div class="inner">
 					<h1>Tobias Rahloff</h1>
-					<p>Tech Enthusiast &nbsp;&bull;&nbsp; Corporate Student at IBM </p>
+					<p style="font-weight:700;">Tech Enthusiast &nbsp;&bull;&nbsp; Corporate Student &nbsp;&bull;&nbsp; IBM </p>
 
 					<nav>
 
-							<a href="https://www.linkedin.com/in/trahloff/" class="social icon fa-linkedin"><span class="label">LinkedIn</span></a>
-							<a href="https://www.xing.com/profile/Tobias_Rahloff2" class="social icon fa-xing"><span class="label">Dribbble</span></a>
-							<a href="https://github.com/trahloff" class="social icon fa-github"><span class="label">Github</span></a>
-							<a href="mailto:rahloff@gmail.com" class="social icon fa-envelope-o"><span class="label">Email</span></a>
+						<a href="https://www.linkedin.com/in/trahloff/" target="_blank" class="social icon fa-linkedin"><span class="label">LinkedIn</span></a>
+						<a href="https://www.xing.com/profile/Tobias_Rahloff2" target="_blank" class="social icon fa-xing"><span class="label">Dribbble</span></a>
+						<a href="https://github.com/trahloff" target="_blank" class="social icon fa-github"><span class="label">Github</span></a>
+						<!-- <a href="mailto:rahloff@gmail.com" target="_blank" class="social icon fa-envelope-o"><span class="label">Email</span></a> -->
+						<a href="#contact" class="social icon fa-envelope-o"><span class="label">Email</span></a>
 
 					</nav>
 
@@ -41,11 +43,49 @@
 			</div>
 		</header>
 
+		<div id="main">
+
+
+			<!-- Contact -->
+			<article id="contact">
+				<h2 class="major">Contact</h2>
+				<form onsubmit="return sendMessage();" id="contactForm">
+					<div class="field half first">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" />
+					</div>
+					<div class="field half">
+						<label for="email">Email</label>
+						<input type="text" name="email" id="email" />
+					</div>
+					<div class="field">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" rows="4"></textarea>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="Send Message" class="special" /></li>
+					</ul>
+				</form>
+			</article>
+
+			<!-- Contact -->
+			<article id="messageSent">
+				<div class="content">
+					<div class="inner">
+						<h1>Thank you!</h1>
+						<h2>Message Sent</h2>
+						<a href="#"><input type="submit" value="ok" class="special" /></a>
+					</div>
+				</div>
+			</article>
+
+		</div>
+
 
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Tobias Rahloff . Design: <a href="https://html5up.net">HTML5 UP</a></p>
+			<p class="copyright">&copy; Tobias Rahloff &nbsp;&bull;&nbsp; Design: <a href="https://html5up.net">HTML5 UP</a></p>
 		</footer>
 
 	</div>
@@ -60,5 +100,12 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
+<script type="text/javascript">
+	function sendMessage() {
+		console.log("placeholder");
+		setTimeout(function(){ window.location.hash = '#messageSent';; }, 3000);
+		return false;
+	}
+</script>
 
 </html>
