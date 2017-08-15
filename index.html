@@ -34,8 +34,8 @@
 						<a href="https://www.xing.com/profile/Tobias_Rahloff2" target="_blank" class="social icon fa-xing"><span class="label">Dribbble</span></a>
 						<a href="https://github.com/trahloff" target="_blank" class="social icon fa-github"><span class="label">Github</span></a>
 						<!-- <a href="assets/resume.pdf" class="social icon fa-file-text-o" target="_blank"><span class="label">Resume</span></a> -->
-						<a href="mailto:rahloff@gmail.com" target="_blank" class="social icon fa-envelope-o"><span class="label">Email</span></a>
-						<!-- <a href="#contact" class="social icon fa-envelope-o"><span class="label">Contact</span></a> -->
+						<!-- <a href="mailto:rahloff@gmail.com" target="_blank" class="social icon fa-envelope-o"><span class="label">Email</span></a> -->
+						<a href="#contact" class="social icon fa-envelope-o"><span class="label">Contact</span></a>
 
 					</nav>
 
@@ -86,7 +86,7 @@
 
 		<!-- Footer -->
 		<footer id="footer">
-			<p class="copyright">&copy; Tobias Rahloff &nbsp;&bull;&nbsp;  <a href="https://html5up.net">HTML5 UP</a></p>
+			<p class="copyright">&copy; Tobias Rahloff &nbsp;&bull;&nbsp; <a href="https://html5up.net">HTML5 UP</a></p>
 		</footer>
 
 	</div>
@@ -101,11 +101,20 @@
 	<script src="assets/js/main.js"></script>
 
 </body>
+
 <script type="text/javascript">
 	function sendMessage() {
-		// url: https://1yxrja0om7.execute-api.eu-central-1.amazonaws.com/dev/message
-		console.log("placeholder");
-		setTimeout(function(){ window.location.hash = '#messageSent'; }, 3000);
+		var data = {
+			name: $('#name').val(),
+			email: $('#email').val(),
+			message: $('#message').val()
+		}
+
+		$.post("https://bt5eckr610.execute-api.eu-central-1.amazonaws.com/dev/message",JSON.stringify(data),
+		 	function(data, status) {
+				window.location.hash = '#messageSent';
+		});
+
 		return false;
 	}
 </script>
