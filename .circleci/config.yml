@@ -5,9 +5,10 @@ dependencies:
         - sudo pip install awscli
 
 jobs:
-  steps:
-    - checkout
-    - build:
-        branch: master
-        commands:
-          - aws s3 sync /home/ubuntu/persona-page s3://s3awscd --delete
+  build:
+    - steps:
+      - checkout
+      - build:
+          branch: master
+          commands:
+            - aws s3 sync /home/ubuntu/persona-page s3://s3awscd --delete
