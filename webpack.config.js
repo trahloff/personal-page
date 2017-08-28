@@ -1,20 +1,17 @@
 const webpack = require('webpack')
 
-module.exports = env => {
-  const prod = (env && env.prod) || process.env.NODE_ENV === 'production'
+module.exports = () => {
   return {
-    entry: './public/app.main.js',
+    entry: './assets/js/main.js',
     watch: !prod,
     output: {
-      filename: './public/bundle.js'
+      filename: './dist/bundle.js'
     },
     module: {
       loaders: [{
         test: /\.js$/,
         exclude: /node_modules/,
         use: [{
-          loader: 'ng-annotate-loader'
-        }, {
           loader: 'babel-loader',
           query: {
             presets: ['es2015']
@@ -25,7 +22,7 @@ module.exports = env => {
         use: [ 'style-loader', 'css-loader' ]
       }]
     },
-    plugins: !prod ? [] : [
+    plugins: [
       new webpack.optimize.OccurrenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin()
     ]}
