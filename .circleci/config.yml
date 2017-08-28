@@ -7,7 +7,7 @@ dependencies:
 jobs:
   steps:
     - checkout
-    - deploy:
+    - build:
         branch: master
         commands:
           - aws s3 sync /home/ubuntu/persona-page s3://s3awscd --delete
